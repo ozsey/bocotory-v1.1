@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bocotory 0.1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Bocotory.</h3>
+            </div>
+    
+            <ul class="list-unstyled components">
+                <li>
+                    <a href="{{ url_for('manage_profile') }}">Manage Profile</a>
+                </li>
+                <li>
+                    <a href="#manage_dashboard">Manage Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('manage_user') }}">Manage User</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('manage_staff') }}">Manage Staff</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('manage_storage') }}">Manage Storage</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('manage_stock') }}">Manage Stock</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('manage_supplier') }}">Manage Supplier</a>
+                </li>
+            </ul>
+        <nav>
+            <ul>
+                {% if 'username' in session %}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        </nav>
+        <div id="content">
+            {% block page_content %}{% endblock %}
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

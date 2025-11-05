@@ -1,0 +1,141 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* home.html */
+.navbar-brand {
+    font-weight: 500;
+}
+.section-title {
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* login.html */
+.login-container {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 70px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.login-title {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.login-btn {
+    width: 100%;
+}
+@media (max-width: 576px) {
+    .login-container {
+        max-width: 300px;
+    }
+}
+
+/* register.html */
+.register-container {
+    max-width: 700px;
+    margin: 100px auto;
+    padding: 70px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.register-title {
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.register-btn {
+    width: 100%;
+}
+@media (max-width: 576px) {
+    .register-container {
+        max-width: 300px;
+    }
+}
+
+/* base.html */
+.wrapper {
+    display: flex;
+}
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background: #343a40; /* Dark grey background */
+    color: #fff;
+    padding-top: 20px;
+}
+#sidebar .sidebar-header {
+    text-align: center;
+    padding-bottom: 20px;
+}
+#sidebar .sidebar-header h3 {
+    margin-bottom: 0;
+    font-size: 24px;
+}
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #fff;
+    text-decoration: none; 
+    transition: all 0.2s;
+}
+#sidebar ul li a:hover {
+    background-color: #212529;
+}
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    background-color: #212529;
+}
+#content {
+    margin-left: 250px;
+    transition: all 0.3s;
+    width: calc(100% - 250px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* agar konten tetap di tengah vertikal */
+}
+.profile-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+.profile-title {
+    font-size: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.profile-btn {
+    width: 100%;
+}

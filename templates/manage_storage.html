@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="container">
+    <h1>Manage Storage</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    <p class="text-danger">{{ message }}</p>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('add_storage') }}" method="POST" class="mb-3">
+        <div class="form-group">
+            <label for="storageid">Storage ID</label>
+            <input type="text" name="storageid" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" name="location" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="capacity">Capacity</label>
+            <input type="text" name="capacity" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Storage</button>
+    </form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Storage ID</th>
+                <th>Location</th>
+                <th>Capacity</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for storage in storage %}
+            <tr>
+                <td>{{ storage.storageid }}</td>
+                <td>{{ storage.location }}</td>
+                <td>{{ storage.capacity }}</td>
+                <td>
+                    <form action="{{ url_for('update_storage', storageid=storage.storageid) }}" method="POST" class="d-inline">
+                        <input type="text" name="location" value="{{ storage.location }}" required>
+                        <input type="text" name="capacity" value="{{ storage.capacity }}" required>
+                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                    </form>
+                    <form action="{{ url_for('delete_storage', storageid=storage.storageid) }}" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
